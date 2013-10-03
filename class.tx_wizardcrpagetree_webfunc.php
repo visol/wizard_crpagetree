@@ -109,7 +109,7 @@ class tx_wizardcrpagetree_webfunc extends t3lib_extobjbase {
 						while(list($k,$line)=each($data))	{
 							if (trim($line))	{
 								// What level are we on?
-								ereg("^$ic*", $line, $regs);
+								preg_match("/^$ic*/", $line, $regs);
 								$level = strlen($regs[0]);
 
 								if ($level == 0) {
@@ -227,7 +227,7 @@ class tx_wizardcrpagetree_webfunc extends t3lib_extobjbase {
 			$v = $data[$i];
 			if (trim($v))	{
 				// What level are we on?
-				ereg("^$ic*", $v, $regs);
+				preg_match("/^$ic*/", $v, $regs);
 				$level = strlen($regs[0]);
 
 				if ($level > $oldLevel) {
@@ -241,7 +241,7 @@ class tx_wizardcrpagetree_webfunc extends t3lib_extobjbase {
 						$v = $data[$j];
 						if (trim($v))	{
 							// What level are we on?
-							ereg("^$ic*", $v, $regs);
+							preg_match("/^$ic*/", $v, $regs);
 							$subLevel = strlen($regs[0]);
 							if ($subLevel >= $level) {
 								$subData[] = $v;
@@ -298,11 +298,11 @@ class tx_wizardcrpagetree_webfunc extends t3lib_extobjbase {
 		foreach($data as $key => $value) {
 
 			// Multiline comment
-			if (ereg("^/\*", $value) and !$multiLine) {
+			if (preg_match("#^/\*#", $value) and !$multiLine) {
 				$multiLine = true;
 				continue;
 			}
-			if (ereg("[\*]+/", ltrim($value)) and $multiLine) {
+			if (preg_match("#[\*]+/#", ltrim($value)) and $multiLine) {
 				$multiLine = false;
 				continue;
 			}
@@ -310,7 +310,7 @@ class tx_wizardcrpagetree_webfunc extends t3lib_extobjbase {
 				continue;
 
 			// Single line comment
-			if (ereg("^//", ltrim($value)) or ereg("^#", ltrim($value)))
+			if (preg_match("#^//#", ltrim($value)) or preg_match("/^#/", ltrim($value)))
 				continue;
 
 			// Empty line
