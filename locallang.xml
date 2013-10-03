@@ -49,6 +49,7 @@
 			<label index="wiz_newPageTree_lCreate_msg1">You're about to create many new pages. Are you sure you want to continue?</label>
 			<label index="wiz_newPageTree_lReset">Clear fields</label>
 			<label index="wiz_newPageTree_noCreate">No pages were created!</label>
+			<label index="wiz_newPageTree_created">This is the parent and the children (including the created pages):</label>
 		</languageKey>
 		<languageKey index="dk">EXT:csh_dk/wizard_crpages/dk.locallang.xml</languageKey>
 		<languageKey index="de">EXT:csh_de/wizard_crpages/de.locallang.xml</languageKey>

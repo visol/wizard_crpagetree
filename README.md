@@ -1,16 +1,16 @@
 # TYPO3 Extension "wizard_crpagetree"
 Wizard that will create a page tree for you. Feed it with a space indented tree structure of the desired pages and the pages will be created for you.
 
-## Version 0.2.2
+## Version 1.0.0
 
 
 
 
 <table>
-	<tr><td>Version</td><td>0.2.2 beta</td></tr>
-	<tr><td>Release date</td><td>17. September 2006</td></tr>
-	<tr><td>Author</td><td>Michiel Roos [netcreators]</td></tr>
-	<tr><td>Comment</td><td>Fixed install error message.</td></tr>
+	<tr><td>Version</td><td>1.0.0 stable</td></tr>
+	<tr><td>Release date</td><td>03. May 2007</td></tr>
+	<tr><td>Author</td><td>Michiel Roos</td></tr>
+	<tr><td>Comment</td><td>Finally debugged. It now works as advertised. Added a fine manual.</td></tr>
 </table>
 
 ## !! Attention !!
