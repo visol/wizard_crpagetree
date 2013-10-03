@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<T3locallang>
+	<meta type='array'>
+		<description>Module labels for Create page wizard</description>
+		<type>module</type>
+		<csh_table></csh_table>
+		<fileId>EXT:wizard_crpagetree/locallang.xml</fileId>
+		<labelContext type='array'>
+			<label index='wiz_crPageTree'></label>
+			<label index='wiz_W'></label>
+			<label index='wiz_newPageTree'></label>
+			<label index='wiz_newPageTree_page'></label>
+			<label index='wiz_newPageTree_currentMenu'></label>
+			<label index='wiz_newPageTree_helpText'></label>
+			<label index='wiz_newPageTree_errorMsg1'></label>
+			<label index='wiz_newPageTree_lCreate'></label>
+			<label index='wiz_newPageTree_listEnd'></label>
+			<label index='wiz_newPageTree_hidePages'></label>
+			<label index='wiz_newPageTree_lCreate_msg1'></label>
+			<label index='wiz_newPageTree_lReset'></label>
+			<label index='wiz_newPageTree_noCreate'></label>
+		</labelContext>
+		<ext_filename_template>EXT:csh_###LANGKEY###/wizard_crpagetree/Resources/Private/Language/###LANGKEY###.locallang.xml</ext_filename_template>
+		<keep_original_text type='integer'>1</keep_original_text>
+	</meta>
+	<data type='array'>
+		<languageKey index='default' type='array'>
+			<label index='wiz_crPageTree'>Create page tree</label>
+			<label index='wiz_W'>W!</label>
+			<label index='wiz_newPageTree'>Create new page tree</label>
+			<label index='wiz_newPageTree_page'>Page</label>
+			<label index='wiz_newPageTree_advanced'>Advanced</label>
+			<label index='wiz_newPageTree_howto'>Enter an indented list of page titles in the area below.</label>
+			<label index='wiz_newPageTree_currentMenu'>New page structure</label>
+			<label index='wiz_newPageTree_errorMsg1'>You are not allowed to create new subpages to this page!</label>
+			<label index='wiz_newPageTree_lCreate'>Create page tree</label>
+			<label index='wiz_newPageTree_extraFields'>Additional fields (space delimited)</label>
+			<label index='wiz_newPageTree_indentationCharacter'>Indentation character:</label>
+			<label index='wiz_newPageTree_indentationSpace'>space</label>
+			<label index='wiz_newPageTree_indentationTab'>tab</label>
+			<label index='wiz_newPageTree_indentationDot'>dot</label>
+			<label index='wiz_newPageTree_separationCharacter'>Additional field values separated by character:</label>
+			<label index='wiz_newPageTree_separationComma'>, comma</label>
+			<label index='wiz_newPageTree_separationPipe'>| pipe</label>
+			<label index='wiz_newPageTree_separationSemicolon'>; semicolon</label>
+			<label index='wiz_newPageTree_separationColon'>: colon</label>
+			<label index='wiz_newPageTree_listEnd'>Place new pages after the existing subpages</label>
+			<label index='wiz_newPageTree_hidePages'>Hide new pages</label>
+			<label index='wiz_newPageTree_lCreate_msg1'>You're about to create many new pages. Are you sure you want to continue?</label>
+			<label index='wiz_newPageTree_lReset'>Clear fields</label>
+			<label index='wiz_newPageTree_noCreate'>No pages were created!</label>
+			<label index='wiz_newPageTree_created'>This is the parent and the children (including the created pages):</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -1,3 +1,12 @@
-2010-11-11  Michiel Roos <extensions@netcreators.com?
+2012-09-26  Michiel Roos <michiel@maxserv.nl>
+- Refactor Language setup
+- Add ext_autoload.php
+- Move images into Resources folder
+- Move code into Classes directory
+- Fix deprectated function: getSetUpdatesignal -> setUpdateSignal
+- Re-generate function index
+- Code cleanup
+
+2010-11-11  Michiel Roos <extensions@netcreators.com>
 	* Remove deprecated functions (Thanks to Michel Tremblay from Infoglobe in Québec City for the patch)
 

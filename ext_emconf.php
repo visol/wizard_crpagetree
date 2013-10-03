@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'description' => 'Wizard that will create a page tree for you. Feed it with a space indented tree structure of the desired pages and the pages will be created for you.',
 	'category' => 'module',
 	'shy' => 0,
-	'version' => '1.0.1',
+	'version' => '1.0.2',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -28,14 +28,16 @@ $EM_CONF[$_EXTKEY] = array (
 	'clearcacheonload' => 0,
 	'lockType' => '',
 	'author' => 'Michiel Roos',
-	'author_email' => 'extensions@netcreators.com',
-	'author_company' => 'Netcreators',
+	'author_email' => 'extensions@donationbasedhosting.org',
+	'author_company' => 'Donation Based Hosting',
 	'CGLcompliance' => NULL,
 	'CGLcompliance_note' => NULL,
 	'constraints' => 
 	array (
 		'depends' => 
 		array (
+			'func_wizards' => '',
+			'' => '',
 		),
 		'conflicts' => 
 		array (

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Web&gt;Function, Wizards CSH / Create Page tree</description>
+		<type>CSH</type>
+		<fileId>EXT:wizard_crpagetree/Resources/Private/Language/ContextSensitiveHelp/default.xml</fileId>
+		<csh_table>_MOD_web_func</csh_table>
+		<keep_original_text>1</keep_original_text>
+		<ext_filename_template>EXT:csh_###LANGKEY###/wizard_crpagetree/Resources/Private/Language/ContextSensitiveHelp/###LANGKEY###.xml</ext_filename_template>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_wizardcrpagetree.alttitle">Create Page tree wizard</label>
+			<label index="tx_wizardcrpagetree.description">Enables you to create a batch of new, empty pages for quickly building up a new page tree. 
+				Just enter the titles for the pages you need. Every indentation character stands for a level in the tree. C-style comments ('//', '#' and '/***/') and empty lines are ignored.</label>
+			<label index="tx_wizardcrpagetree.details">The new pages will always be created as subpages of the currently active page in the page tree. This page is shown in the top of the page. In the example image below it is &quot;/Intro/Startpage/&quot;.
+
+&lt;b&gt;&quot;Place new pages after the existing subpages&quot;&lt;/b&gt;
+If you select this option the pages will be create &lt;em&gt;after&lt;/em&gt; any existing subpages.
+
+&lt;b&gt;&quot;Hide new pages&quot;&lt;/b&gt;
+Select this if the new pages should be hidden by default. This option may be forced upon you if you do not have credentials to create new, online pages.
+
+&lt;b&gt;Advanced&lt;/b&gt;
+You may add adittional field values (besides title) to the created pages. Specify the values after the title, seperated by the 'field value separation character'. Then specify which fields the values should map to. In the example the extra fields 'description' and 'shortcut' are set for the created pages.</label>
+			<label index="_tx_wizardcrpagetree.image">EXT:wizard_crpagetree/Resources/Public/Images/crpagetree_1.png,
+EXT:wizard_crpagetree/Resources/Public/Images/crpagetree_2.png</label>
+			<label index="tx_wizardcrpagetree.image_descr">Simply enter a space delimited list of titles and generate an entire tree at once.
+After pressing the &quot;Create page tree&quot; button the page tree to the left will update instantly, showing you the position of the new pages!</label>
+		</languageKey>
+		<!--<languageKey index="nl">EXT:wizard_crpagetree/wizard_crpagetree/Resources/Private/Language/ContextSensitiveHelp/nl.xml</languageKey>-->
+	</data>
+</T3locallang>
