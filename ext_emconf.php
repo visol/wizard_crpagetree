@@ -14,35 +14,33 @@ $EM_CONF[$_EXTKEY] = array (
 	'title' => 'Web>Func, Wizards, Create page tree',
 	'description' => 'Wizard that will create a page tree for you. Feed it with a space indented tree structure of the desired pages and the pages will be created for you.',
 	'category' => 'module',
-	'shy' => '1',
+	'shy' => 0,
+	'version' => '0.2.2',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => '',
 	'state' => 'beta',
-	'uploadfolder' => '0',
+	'uploadfolder' => 0,
 	'createDirs' => '',
 	'modify_tables' => '',
-	'clearCacheOnLoad' => '0',
+	'clearcacheonload' => 0,
 	'lockType' => '',
-	'author' => 'Michiel Roos',
-	'author_email' => 'typo3@monosock.org',
-	'author_company' => 'meyson',
+	'author' => 'Michiel Roos [netcreators]',
+	'author_email' => 'extensions@netcreators.com',
+	'author_company' => 'netcreators',
 	'CGLcompliance' => NULL,
 	'CGLcompliance_note' => NULL,
-	'version' => '0.2.1',
 	'constraints' => 
 	array (
 		'depends' => 
 		array (
-			'typo3' => '0.0.3-0.0.3',
-			'php' => '0.0.3-0.0.3',
-			'func_wizards' => '',
+			'php' => '3.0.0-',
+			'typo3' => '3.5.0-',
 		),
 		'conflicts' => 
 		array (
-			'' => '',
 		),
 		'suggests' => 
 		array (
