@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
  *  Copyright notice
  *
@@ -53,10 +54,7 @@
  *
  */
 
-require_once(PATH_t3lib . 'class.t3lib_pagetree.php');
-require_once(PATH_t3lib . 'class.t3lib_page.php');
-require_once(PATH_t3lib . 'class.t3lib_tcemain.php');
-require_once(PATH_t3lib . 'class.t3lib_extobjbase.php');
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Creates the "Create pagetree" wizard
@@ -65,7 +63,7 @@ require_once(PATH_t3lib . 'class.t3lib_extobjbase.php');
  * @package TYPO3
  * @subpackage tx_wizardcrpagetree
  */
-class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
+class tx_wizardcrpagetree_Webfunc_CreatePageTree extends \TYPO3\CMS\Backend\Module\AbstractFunctionModule {
 	/**
 	 * Main function creating the content for the module.
 	 *
@@ -75,15 +73,15 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 		$theCode = '';
 		$pageTree = Array();
 			// create new pages here?
-		$pRec = t3lib_BEfunc::getRecord('pages', $this->pObj->id, 'uid', ' AND ' . $GLOBALS['BE_USER']->getPagePermsClause(8));
-		$sysPages = t3lib_div::makeInstance('t3lib_pageSelect');
+		$pRec = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', $this->pObj->id, 'uid', ' AND ' . $GLOBALS['BE_USER']->getPagePermsClause(8));
+		$sysPages = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\Page\PageRepository');
 		$menuItems = $sysPages->getMenu($this->pObj->id);
 		if (is_array($pRec)) {
-			if (t3lib_div::_POST('newPageTree') === 'submit') {
-				$data = explode("\r\n", t3lib_div::_POST('data'));
+			if (GeneralUtility::_POST('newPageTree') === 'submit') {
+				$data = explode("\r\n", GeneralUtility::_POST('data'));
 				$data = $this->filterComments($data);
 				if (count($data)) {
-					if (t3lib_div::_POST('createInListEnd')) {
+					if (GeneralUtility::_POST('createInListEnd')) {
 						$endI = end($menuItems);
 						$thePid = - intval($endI['uid']);
 						if (!$thePid) {
@@ -129,12 +127,12 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 								}
 
 									// Get title and additional field values
-								$parts = t3lib_div::trimExplode($sc, $line);
+								$parts = GeneralUtility::trimExplode($sc, $line);
 
 								$pageTree['pages']['NEW' . $pageIndex]['title'] = ltrim($parts[0], $ic);
 								$pageTree['pages']['NEW' . $pageIndex]['pid'] = $currentPid;
 								$pageTree['pages']['NEW' . $pageIndex]['sorting'] = $sorting--;
-								$pageTree['pages']['NEW' . $pageIndex]['hidden'] = t3lib_div::_POST('hidePages') ? 1 : 0;
+								$pageTree['pages']['NEW' . $pageIndex]['hidden'] = GeneralUtility::_POST('hidePages') ? 1 : 0;
 
 									// Drop the title
 								array_shift($parts);
@@ -153,7 +151,7 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 
 					if (count($pageTree['pages'])) {
 						reset($pageTree);
-						$tce = t3lib_div::makeInstance('t3lib_TCEmain');
+						$tce = GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler');
 						$tce->stripslashes_values = 0;
 							//reverseOrder does not work with nested arrays
 							//$tce->reverseOrder=1;
@@ -165,7 +163,7 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 					}
 
 						// Display result:
-					$tree = t3lib_div::makeInstance('t3lib_browseTree');
+					$tree = GeneralUtility::makeInstance('TYPO3\CMS\Backend\Tree\View\BrowseTreeView');
 					$tree->init(' AND pages.doktype < 199 AND pages.hidden = "0"');
 					$tree->thisScript = 'index.php';
 					$tree->setTreeName('pageTree');
@@ -372,7 +370,7 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 	 * @return	string		the indentation character
 	 */
 	private function getIndentationChar() {
-		$ic = t3lib_div::_POST('indentationCharacter');
+		$ic = GeneralUtility::_POST('indentationCharacter');
 		switch ($ic) {
 			case 'dot':
 				$ic = '\.';
@@ -394,7 +392,7 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 	 * @return	string		the separation character
 	 */
 	private function getSeparationChar() {
-		$sc = t3lib_div::_POST('separationCharacter');
+		$sc = GeneralUtility::_POST('separationCharacter');
 		switch ($sc) {
 			case 'pipe':
 				$sc = '|';
@@ -419,9 +417,9 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 	 * @return	array		the extra fields
 	 */
 	private function getExtraFields() {
-		$efLine = t3lib_div::_POST('extraFields');
+		$efLine = GeneralUtility::_POST('extraFields');
 		if (trim($efLine)) {
-			$ef = t3lib_div::trimExplode(' ', $efLine, 1);
+			$ef = GeneralUtility::trimExplode(' ', $efLine, 1);
 			return $ef;
 		}
 		return FALSE;
@@ -447,7 +445,4 @@ class tx_wizardcrpagetree_Webfunc_CreatePageTree extends t3lib_extobjbase {
 	}
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wizard_crpagetree/Classes/Webfunc/CreatePageTree.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wizard_crpagetree/Classes/Webfunc/CreatePageTree.php']);
-}
 ?>

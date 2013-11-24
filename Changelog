@@ -1,3 +1,7 @@
+2013-11-24	Lorenz Ulrich <lorenz.ulrich@visol.ch>
+- TYPO3 6.2 Support
+- Use namespaced TYPO3 classes
+
 2012-09-26  Michiel Roos <michiel@maxserv.nl>
 - Refactor Language setup
 - Add ext_autoload.php
