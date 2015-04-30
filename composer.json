@@ -1,0 +1,7 @@
+{
+	"name": "visol/wizard-crpagetree",
+	"type": "typo3-cms-extension",
+	"description": "Web>Func, Wizards, Create page tree",
+	"homepage": "https://github.com/visol/wizard_crpagetree",
+	"license": ["GPL-2.0+"]
+}
